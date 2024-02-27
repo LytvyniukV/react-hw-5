@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  gap: 15px;
+  padding-left: 10px;
+}
+.header {
+  border-bottom: 1px solid white;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.link {
+  padding: 8px 16px;
+  transition: all ease-in-out 0.3s;
+}
+
+.link:hover {
+  scale: 1.05;
+  border-bottom: 2px solid white;
+}
+.active {
+  background-color: white;
+  border-radius: 12px;
+  color: black;
+}

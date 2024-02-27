@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.item {
+  width: 180px;
+  height: 350px;
+  background-color: rgb(59, 56, 56);
+  padding: 8px;
+}
+
+.item:hover {
+  background-color: rgb(98, 95, 95);
+}

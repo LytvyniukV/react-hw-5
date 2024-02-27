@@ -1,0 +1,35 @@
+.form {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 300px;
+  height: 20px;
+  border-radius: 20px;
+  padding: 5px 0 5px 50px;
+  outline: transparent;
+  border: 1px solid white;
+  box-shadow: 0px 5px 8px 0px white;
+}
+.input:hover,
+.input:focus {
+  box-shadow: 0px 5px 10px 0px rgb(91, 213, 91);
+}
+.btn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover,
+.btn:focus {
+  color: gray;
+}
