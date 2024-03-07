@@ -2,9 +2,12 @@ import { IoSearch } from 'react-icons/io5';
 import css from './SearchBar.module.css';
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-export const SearchBar = ({ onSearch }) => {
+export const SearchBar = () => {
   const [isButtonActive, setIsButtonActive] = useState(false);
+  const [filter, setFilter] = useSearchParams();
+
   const notify = () => toast('Please enter search term!');
   const handleSubmit = event => {
     event.preventDefault();
@@ -13,7 +16,8 @@ export const SearchBar = ({ onSearch }) => {
       notify();
       return;
     }
-    onSearch(query);
+    filter.set('query', query);
+    setFilter(filter)
   };
 
   const onChangeSearch = e => {

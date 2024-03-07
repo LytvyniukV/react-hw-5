@@ -4,26 +4,22 @@ import { getMovieByFilter } from '../JS/api';
 import { Loader } from '../components/Loader/Loader';
 import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
 import { MovieList } from '../components/MovieList/MovieList';
+import { useSearchParams } from 'react-router-dom';
 export default function MoviesPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
+  const [query] = useSearchParams();
 
-  const handleSearch = newQuery => {
-    setMovies([]);
-    setQuery(newQuery);
-  };
+  const filter = query.get('query') ?? '';
 
   useEffect(() => {
-    if (!query) return;
+    if (!filter) return;
 
     async function getMovies() {
       try {
         setLoading(true);
-        const { results } = await getMovieByFilter(query);
-        console.log(results);
-        console.log(query);
+        const { results } = await getMovieByFilter(filter);
         setMovies(results);
       } catch (error) {
         setError(true);
@@ -32,11 +28,11 @@ export default function MoviesPage() {
       }
     }
     getMovies();
-  }, [query]);
+  }, [filter]);
 
   return (
     <>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar />
       <MovieList movies={movies} />
       {loading && <Loader />}
       {error && <ErrorMessage />}

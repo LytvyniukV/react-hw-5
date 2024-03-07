@@ -7,7 +7,7 @@ export const MovieList = ({ movies = [] }) => {
       {movies.map(({ id, poster_path, title, release_date, vote_average }) => {
         return (
           <li key={id} className={css.item}>
-            <Link to="/movies/:movieId" className={css.link}>
+            <Link to={`/movies/${id}`} className={css.link}>
               <MovieItem
                 poster={poster_path}
                 title={title}
