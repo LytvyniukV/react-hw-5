@@ -11,10 +11,10 @@ export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [query] = useSearchParams();
 
-  const filter = query.get('query') ?? '';
+  const filter = query.get('query');
 
   useEffect(() => {
-    if (filter === '') return;
+    if (!filter) return;
 
     async function getMovies() {
       try {
