@@ -31,11 +31,11 @@ export default function MoviesPage() {
   }, [filter]);
 
   return (
-    <>
+    <main>
       <SearchBar />
       <MovieList movies={movies} />
       {loading && <Loader />}
       {error && <ErrorMessage />}
-    </>
+    </main>
   );
 }

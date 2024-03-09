@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { Loader } from '../components/Loader/Loader';
 import { getMovieById } from '../JS/api';
 import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
-import MovieDetails from '../components/MovieDetails/MovieDetails';
 import MovieDescription from '../components/MovieDescription/MovieDescription';
 
 export default function MovieDetailsPage() {
@@ -27,11 +26,21 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <>
+    <main>
       <MovieDescription movie={movie} />
-      <MovieDetails />
       {loading && <Loader />}
       {error && <ErrorMessage />}
-    </>
+      <div>
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </div>
+    </main>
   );
 }
