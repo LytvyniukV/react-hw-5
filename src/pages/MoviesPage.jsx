@@ -14,7 +14,7 @@ export default function MoviesPage() {
   const filter = query.get('query') ?? '';
 
   useEffect(() => {
-    if (!filter) return;
+    if (filter === '') return;
 
     async function getMovies() {
       try {

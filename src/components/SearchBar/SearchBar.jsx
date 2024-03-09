@@ -13,7 +13,7 @@ export const SearchBar = () => {
     if (query.trim() === '') {
       setIsButtonActive(false);
     }
-    filter.set('query', query);
+    filter.set('query', query.trim());
     setFilter(filter);
     setIsButtonActive(true);
   };

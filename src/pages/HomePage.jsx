@@ -25,7 +25,11 @@ export default function HomePage() {
   }, []);
   return (
     <>
-      <MovieList movies={movies} />
+      {movies.length > 0 ? (
+        <MovieList movies={movies} />
+      ) : (
+        <div>We dont have any movies by this search</div>
+      )}
       {loading && <Loader />}
       {error && <ErrorMessage />}
     </>
