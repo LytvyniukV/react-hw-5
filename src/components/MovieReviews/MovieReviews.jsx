@@ -27,7 +27,11 @@ export default function MovieReviews() {
   }, [movieId]);
   return (
     <div>
-      {reviews ? <MovieReviewsList reviews={reviews} /> : 'No reviews yet'}
+      {reviews.length > 0 ? (
+        <MovieReviewsList reviews={reviews} />
+      ) : (
+        'No reviews yet'
+      )}
       {loading && <Loader />}
       {error && <ErrorMessage />}
     </div>
