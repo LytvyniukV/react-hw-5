@@ -1,15 +1,20 @@
-import { Suspense, useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Loader } from '../components/Loader/Loader';
 import { getMovieById } from '../JS/api';
 import { ErrorMessage } from '../components/ErrorMessage/ErrorMessage';
 import MovieDescription from '../components/MovieDescription/MovieDescription';
+import MovieDetailsLinks from '../components/MovieDetailsLinks/MovieDetailsLinks';
+import BackLinkbtn from '../components/BackLinkBtn/BackLinkBtn';
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [movie, setMovie] = useState('');
+  const location = useLocation();
+
+  const backLinkRef = useRef(location.state);
   useEffect(() => {
     async function getMovie() {
       try {
@@ -27,20 +32,13 @@ export default function MovieDetailsPage() {
 
   return (
     <main>
+      <Link to={backLinkRef.current}>
+        <BackLinkbtn />
+      </Link>
       <MovieDescription movie={movie} />
+      <MovieDetailsLinks />
       {loading && <Loader />}
       {error && <ErrorMessage />}
-      <div>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
-      </div>
     </main>
   );
 }

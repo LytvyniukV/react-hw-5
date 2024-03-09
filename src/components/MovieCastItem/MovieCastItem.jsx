@@ -1,16 +1,22 @@
+import { BASE_POSTER_URL, PLACEHOLDER } from '../../utils/constants';
+import css from './MovieCastItem.module.css';
 export default function MovieCastItem({ actor }) {
-  const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
   return (
     <>
       <img
-        src={`${imgBaseUrl + actor.profile_path}`}
+        className={css.img}
+        src={`${
+          actor.profile_path
+            ? BASE_POSTER_URL + actor.profile_path
+            : PLACEHOLDER + '?text=' + actor.name
+        }`}
         alt={`${actor.name} photo`}
       />
-      <p>
-        Actor: <span>{actor.name}</span>
+      <p className={css.title}>
+        Actor: <span className={css.text}>{actor.name}</span>
       </p>
-      <p>
-        Character: <span>{actor.character}</span>
+      <p className={css.title}>
+        Character: <span className={css.text}>{actor.character}</span>
       </p>
     </>
   );

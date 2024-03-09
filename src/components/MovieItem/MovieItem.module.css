@@ -1,6 +1,7 @@
 .img {
-  width: 100%;
-  margin-bottom: 4px;
+  max-width: 270px;
+  margin-bottom: auto;
+  
 }
 
 .title {
@@ -10,11 +11,12 @@
 }
 
 .contentWrap {
-  margin-top: auto;
   padding: 6px;
   display: flex;
   flex-direction: column;
+  margin-top: auto;
   justify-content: space-between;
+  
 }
 .wrapper {
   display: flex;

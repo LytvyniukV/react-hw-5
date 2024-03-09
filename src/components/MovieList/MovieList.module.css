@@ -7,11 +7,17 @@
 }
 .item {
   width: 180px;
-  height: 350px;
+  min-height: 350px;
   background-color: rgb(59, 56, 56);
   padding: 8px;
 }
 
 .item:hover {
   background-color: rgb(98, 95, 95);
+}
+
+.link{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

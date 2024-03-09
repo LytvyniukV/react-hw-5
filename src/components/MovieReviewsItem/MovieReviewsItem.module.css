@@ -1,0 +1,19 @@
+.img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.title{
+font-size: 18px;
+color: rgb(247, 206, 103);
+margin-bottom: 5px;
+}
+.text{
+    font-style: italic;
+    color: red;
+    
+}
+.content{
+    font-size: 14px;
+}

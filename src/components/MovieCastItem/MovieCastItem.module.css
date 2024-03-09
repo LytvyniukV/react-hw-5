@@ -1,0 +1,13 @@
+.img{
+    border-radius: 10px;
+    margin-bottom: auto;
+}
+
+.title{
+    color: rgb(244, 202, 94);
+    font-size: 14px;
+}
+
+.text{
+    color: white;
+}

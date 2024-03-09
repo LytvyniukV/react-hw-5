@@ -1,11 +1,13 @@
 import { FaStar } from 'react-icons/fa6';
+import { BASE_POSTER_URL, PLACEHOLDER } from '../../utils/constants';
 import css from './MovieItem.module.css';
 export const MovieItem = ({ poster, title, releaseDate, voteAverage }) => {
-  const imgBaseUrl = 'https://image.tmdb.org/t/p/w500';
   return (
     <>
       <img
-        src={`${imgBaseUrl + poster}`}
+        src={`${
+          poster ? BASE_POSTER_URL + poster : PLACEHOLDER + '?text=' + title
+        }`}
         alt={`${title} poster`}
         className={css.img}
       />

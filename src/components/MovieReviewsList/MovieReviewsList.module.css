@@ -1,0 +1,10 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.item{
+    background-color: rgb(40, 38, 38);
+    border-radius: 20px;
+    padding: 20px;
+}
